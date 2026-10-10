@@ -50,4 +50,18 @@ BFS(graph, start):
                 add neighbour to visited
                 enqueue neighbour into Q
 
+    return orderDFS(graph, node, visited, order):
+    add node to visited
+    append node to order
+
+    for each neighbour of node in graph[node]:
+        if neighbour not in visited:
+            DFS(graph, neighbour, visited, order)
+
     return order
+
+main:
+    visited = empty set
+    order = empty list
+    DFS(graph, start, visited, order)
+    
