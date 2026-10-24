@@ -16,7 +16,7 @@ BFS(graph, start):
                 enqueue neighbor into Q
 
     return order
-BFS(graph, start):
+(BFS(graph, start):
     create an empty queue Q
     create an empty set visited
     create an empty list order
@@ -58,9 +58,9 @@ BFS(graph, start):
         if neighbour not in visited:
             DFS(graph, neighbour, visited, order)
 
-    return order
+    return order)
 
-main:
+(main:
     visited = empty set
     order = empty list
     DFS(graph, start, visited, order)
@@ -70,4 +70,17 @@ repeat:
     try pouring any jug into any other jug
     (pour until the source is empty or the target is full)
     skip any state you've already seen
-until first two jugs both hold 4
+until first two jugs both hold 4)
+
+
+
+{A star search} 
+
+open = {S}, g(S) = 0
+repeat:
+    pick the node in open with the lowest f = g + h
+    if it is G: stop, return the path
+    for each neighbour:
+        newG = g(node) + edge cost
+        if newG is better than the neighbour's old g:
+            update g, remember the parent, add to open
