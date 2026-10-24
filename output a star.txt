@@ -1,0 +1,8 @@
+Python 3.14.8 (tags/v3.14.8:8e6e75d, Sep 30 2026, 18:19:33) [MSC v.1944 64 bit (AMD64)] on win32
+Enter "help" below or click "Help" above for more information.
+>>> 
+=================================================== RESTART: C:/Users/Pranav Kalyan/AppData/Local/Programs/Python/Python314/test22.py ===================================================
+[(8, 0, 0), (3, 5, 0), (3, 2, 3), (6, 2, 0), (6, 0, 2), (1, 5, 2), (1, 4, 3), (4, 4, 0)]
+>>> 
+=================================================== RESTART: C:/Users/Pranav Kalyan/AppData/Local/Programs/Python/Python314/a star.py ===================================================
+['S', 'B', 'G'] 6
