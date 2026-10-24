@@ -84,3 +84,18 @@ repeat:
         newG = g(node) + edge cost
         if newG is better than the neighbour's old g:
             update g, remember the parent, add to open
+minimax(node):
+    if node is a leaf:
+        return its value
+[mini max }
+ >>>   (if node is MAX:
+        best = -infinity
+        for each child:
+            best = max(best, minimax(child))
+        return best
+
+>>>    if node is MIN:
+        best = +infinity
+        for each child:
+            best = min(best, minimax(child))
+        return best)
