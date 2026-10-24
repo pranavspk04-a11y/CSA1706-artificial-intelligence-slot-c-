@@ -99,3 +99,20 @@ minimax(node):
         for each child:
             best = min(best, minimax(child))
         return best)
+
+Pseudocode (backtracking):  { Mini mapping}
+
+
+
+assign(region):
+    if all regions are coloured: return success
+
+    for each colour:
+        if no neighbour already has this colour:
+            give the region this colour
+            if assign(next region) succeeds: return success
+            undo the colour (backtrack)
+
+    return failure
+
+
