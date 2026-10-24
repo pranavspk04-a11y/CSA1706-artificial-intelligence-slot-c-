@@ -65,3 +65,9 @@ main:
     order = empty list
     DFS(graph, start, visited, order)
     
+water jug problem Pseudocode:start at (8, 0, 0)
+repeat:
+    try pouring any jug into any other jug
+    (pour until the source is empty or the target is full)
+    skip any state you've already seen
+until first two jugs both hold 4
