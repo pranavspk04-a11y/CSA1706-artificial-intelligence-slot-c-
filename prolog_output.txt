@@ -1,0 +1,229 @@
+PROLOG LAB PROGRAMS (Q27 - Q39) - SAMPLE QUERIES AND OUTPUT
+Program file: prolog_programs.pl   (load with  ?- [prolog_programs].)
+Note: outputs below were traced by hand, not captured from a live SWI-Prolog run.
+Where a query has several answers they are shown with ';' as SWI-Prolog does.
+
+=====================================================================
+Q27 - Name / DOB
+=====================================================================
+?- db_person(ravi, DOB).
+DOB = dob(12, 5, 2001).
+
+?- born_in_year(N, 2000).
+N = anita.
+
+?- same_dob(A, B).
+false.
+
+?- show_dob(anita).
+anita was born on 3-11-2000
+true.
+
+=====================================================================
+Q28 - Student / Teacher / Subject / Code
+=====================================================================
+?- student_teacher(ravi, T).
+T = sharma ;
+T = khan.
+
+?- subject_of_student(kumar, S).
+S = 'Programming' ;
+S = 'Data Structures'.
+
+?- teacher_subject(iyer, S).
+S = 'Data Structures'.
+
+?- code_of('Programming', C).
+C = cs101.
+
+=====================================================================
+Q29 - Planets
+=====================================================================
+?- planet(earth, Order, Dia, Moons).
+Order = 3, Dia = 12756, Moons = 1.
+
+?- nth_planet(5, P).
+P = jupiter.
+
+?- bigger_than(jupiter, earth).
+true.
+
+?- has_moons(P).
+P = earth ;
+P = mars ;
+P = jupiter ;
+P = saturn ;
+P = uranus ;
+P = neptune.
+
+=====================================================================
+Q30 - Towers of Hanoi
+=====================================================================
+?- hanoi(3).
+Move disk 1 from left to right
+Move disk 2 from left to center
+Move disk 1 from right to center
+Move disk 3 from left to right
+Move disk 1 from center to left
+Move disk 2 from center to right
+Move disk 1 from left to right
+true.
+
+=====================================================================
+Q31 - Bird can fly or not
+=====================================================================
+?- can_fly(eagle).
+true.
+
+?- can_fly(penguin).
+false.
+
+?- check_bird(ostrich).
+ostrich cannot fly.
+true.
+
+?- can_fly(X).
+X = sparrow ;
+X = eagle ;
+X = crow.
+
+?- bird(X), \+ can_fly(X).
+X = penguin ;
+X = ostrich ;
+X = emu ;
+X = kiwi.
+
+=====================================================================
+Q32 - Family tree
+=====================================================================
+?- mother(M, bob).
+M = pam.
+
+?- father(tom, X).
+X = bob ;
+X = liz.
+
+?- grandfather(tom, ann).
+true.
+
+?- grandmother(G, jim).
+false.
+
+?- grandmother(pam, ann).
+true.
+
+?- sister(liz, bob).
+true.
+
+?- sister(ann, X).
+X = pat.
+
+?- brother(bob, liz).
+true.
+
+=====================================================================
+Q33 - Diet system based on disease
+=====================================================================
+?- suggest_diet(diabetes).
+Diet plan for diabetes:
+  eat: whole grains, vegetables, legumes
+  avoid: sugar, sweets, white bread
+  tip: small frequent meals, monitor carbs
+true.
+
+?- suggest_diet(anemia).
+Diet plan for anemia:
+  eat: spinach, beetroot, dates, jaggery, meat, citrus fruits
+  avoid: tea/coffee along with meals
+  tip: vitamin C helps iron absorption
+true.
+
+=====================================================================
+Q34 - Monkey Banana problem
+=====================================================================
+?- monkey.
+Plan to get the banana:
+  walk(atdoor,atwindow)
+  push(atwindow,atdoor)
+  push(atdoor,middle)
+  climb
+  grasp
+true.
+
+=====================================================================
+Q35 - Fruit and colour using backtracking
+=====================================================================
+?- fruits_of_color(red).
+apple is red
+strawberry is red
+cherry is red
+true.
+
+?- all_fruits.
+apple -> red
+banana -> yellow
+grapes -> green
+orange -> orange
+strawberry -> red
+mango -> yellow
+lemon -> yellow
+cherry -> red
+true.
+
+?- fruit_color(F, yellow).
+F = banana ;
+F = mango ;
+F = lemon.
+
+=====================================================================
+Q36 - Best First Search
+=====================================================================
+?- best_first(s, g, Path).
+Path = [s, b, e, g].
+
+=====================================================================
+Q37 - Medical diagnosis (sample session; answer yes. or no.)
+=====================================================================
+?- diagnose.
+Does the patient have fever? (yes/no): yes.
+Does the patient have cough? (yes/no): yes.
+Does the patient have body_pain? (yes/no): yes.
+Does the patient have headache? (yes/no): yes.
+
+Diagnosis: the patient probably has flu.
+true.
+
+=====================================================================
+Q38 - Forward chaining
+=====================================================================
+?- run_forward.
+Derived new fact: bird  (from [has_feathers,lays_eggs])
+Derived new fact: water_bird  (from [bird,can_swim])
+Derived new fact: needs_pond  (from [water_bird])
+
+All derived facts: [bird,water_bird,needs_pond]
+true.
+
+=====================================================================
+Q39 - Backward chaining
+=====================================================================
+?- prove(needs_pond).
+To prove needs_pond, need [water_bird]
+   To prove water_bird, need [bird,can_swim]
+      To prove bird, need [has_feathers,lays_eggs]
+         has_feathers is a known FACT
+         lays_eggs is a known FACT
+      => bird proved
+      can_swim is a known FACT
+   => water_bird proved
+=> needs_pond proved
+true.
+
+?- prove(can_fly).
+To prove can_fly, need [bird,has_wings,light_weight]
+   To prove bird, need [has_feathers,lays_eggs]
+      has_feathers is a known FACT
+      lays_eggs is a known FACT
+   => bird proved
+   has_wings is a known FACT
+false.
