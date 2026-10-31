@@ -306,7 +306,7 @@ diagnose :-
     (   med_disease(D, Symptoms),
         forall(member(S, Symptoms), med_ask(S))
     ->  format('~nDiagnosis: the patient probably has ~w.~n', [D])
-    ;   write('~nNo matching disease found. Please consult a doctor.'), nl
+    ;   format('~nNo matching disease found. Please consult a doctor.~n')
     ),
     med_clear.
 
